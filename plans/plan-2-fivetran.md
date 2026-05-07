@@ -1,180 +1,279 @@
 # Prep Plan: Fivetran — Senior Software Engineer
-**Budget:** 120 min over 7 days  
-**Rounds:** DSA  
+**Budget:** 120 min over 7 days
+**Rounds:** dsa
 **Generated:** 2026-05-07
 
 ---
 
-## Day 1 — Greedy & DP Foundations
-**Budget today:** 20 min
-
-### DSA: Gas Station (LC 134)
-- **Pattern / goal:** Greedy algorithm; determine if a circular route can be completed with resource constraints.
-- **Approach:**
-  - Understand why greedy works: if you can't reach station `i` from `i-1`, you can't reach it from any earlier station either.
-  - Code the one-pass solution tracking cumulative gas and current tank.
-  - Walk through the "Aladdin and the Magic Carpet" variant conceptually — same greedy principle.
-- **Time:** 20 min
+**Note on Budget:** The provided total budget of 120 minutes over 7 days is extremely tight. A single DSA problem typically requires 45-60 minutes for a thorough approach (understanding, Big O, coding, testing, discussing edge cases). This plan prioritizes the most directly reported problems within your budget, front-loading the practice to allow for review. It covers 2 problems in total.
 
 ---
 
-## Day 2 — Dynamic Programming Deep Dive
-**Budget today:** 20 min
+## Day 1 — Foundational DSA: Heaps
+**Budget today:** 60 min
 
-### DSA: Longest Increasing Subsequence (LC 300)
-- **Pattern / goal:** Classic DP problem; explain O(n²) approach and trace through an example.
-- **Approach:**
-  - Build intuition: `dp[i]` = longest increasing subsequence ending at index `i`.
-  - Code the O(n²) nested-loop solution first.
-  - Briefly discuss O(n log n) binary search optimization (mention but don't code unless time permits).
-  - Trace a concrete example: `[10, 9, 2, 5, 3, 7, 101, 18]` → expected output `4` (e.g., `[2, 3, 7, 101]`).
-- **Time:** 20 min
-
----
-
-## Day 3 — String Manipulation & Frequency Counting
-**Budget today:** 20 min
-
-### DSA: String Compression with Frequency Aggregation
-- **Pattern / goal:** String manipulation + hashmap; compress by summing character frequencies across the string.
-- **Approach:**
-  - Parse input: `"a3c9b2c2"` → extract character-count pairs.
-  - Use a hashmap to aggregate all occurrences of each character.
-  - Build result string with characters in order of first appearance, summing their counts.
-  - Expected output: `"a3b2c11"`.
-  - Code two passes: one to extract pairs, one to aggregate and reconstruct.
-- **Time:** 20 min
+### DSA: Employee Score Management (Heap-based)
+-   **Pattern / goal:** Practice using heaps (priority queues) to efficiently manage and query dynamic sets of data, often for "top K" or "Kth largest/smallest" scenarios. This directly addresses the reported "Employee score management problem (Heap-based)".
+-   **Approach:**
+    1.  Clarify requirements for an employee score management system (e.g., add score, find top K scores, find median score).
+    2.  Model the problem as finding the Top K Frequent Elements, a common heap application.
+    3.  Implement a solution using a frequency map and a min-heap (for Top K) or a double-heap approach (for median).
+    4.  Analyze time and space complexity, discuss edge cases.
+-   **Specific Problem:** LeetCode 347: Top K Frequent Elements
+-   **Time:** 60 min
 
 ---
 
-## Day 4 — Data Structure Problem-Solving
-**Budget today:** 20 min
+## Day 2 — Foundational DSA: Dynamic Programming
+**Budget today:** 60 min
 
-### DSA: Bag Item Removal Problem (Frequency Optimization)
-- **Pattern / goal:** Greedy + frequency counting; minimize distinct elements after removals.
-- **Approach:**
-  - Restate problem: `n = 6` items with IDs, remove `m = 2` items, minimize distinct IDs remaining.
-  - Key insight: greedily remove items with the highest frequency to reduce distinct count fastest.
-  - Use a frequency map and max-heap (or sorted list) to track counts.
-  - Code the greedy loop: while removals available, remove one instance of the most-frequent item.
-  - Walk through a concrete example: IDs `[1, 1, 1, 2, 2, 3]`, remove 2 → greedy removes two `1`s → result has 2 distinct IDs.
-- **Time:** 20 min
-
----
-
-## Day 5 — Stack-Based Problem
-**Budget today:** 20 min
-
-### DSA: Valid Parentheses or Stack-Based Array Problem (LC 20 or similar)
-- **Pattern / goal:** Stack operations; solve a medium-difficulty stack problem commonly asked at Fivetran.
-- **Approach:**
-  - If asked: **Valid Parentheses (LC 20)** — use stack to match opening/closing brackets. Code and trace.
-  - Alternative if stack+array hybrid reported: solve the specific LeetCode medium marked as "stack-related" from Fivetran reports.
-  - Push opening brackets, pop and validate matching closing brackets.
-  - Handle edge cases: empty string, odd length, mismatched pairs.
-- **Time:** 20 min
+### DSA: Longest Increasing Subsequence (LIS)
+-   **Pattern / goal:** Practice dynamic programming (DP) techniques, specifically for sequence problems where optimal substructure and overlapping subproblems are present. This is a classic DP problem reported directly by a Fivetran candidate.
+-   **Approach:**
+    1.  Start with a brute-force recursive solution to understand the overlapping subproblems.
+    2.  Memoize the recursive solution to optimize.
+    3.  Develop an iterative DP solution using an array to store subproblem results.
+    4.  (Optional, if time permits): Explore the O(N log N) solution using patience sorting / binary search.
+-   **Specific Problem:** LeetCode 300: Longest Increasing Subsequence
+-   **Time:** 60 min
 
 ---
 
-## Day 6 — Array Manipulation & Follow-up Patterns
-**Budget today:** 20 min
-
-### DSA: Medium Array Manipulation (Generic + Follow-up)
-- **Pattern / goal:** Array problem with a follow-up twist; practice explaining optimization.
-- **Approach:**
-  - Choose a LeetCode Medium array problem (e.g., **Two Sum II (LC 167)**, **3Sum (LC 15)**, or **Container With Most Water (LC 11)**).
-  - Code the straightforward O(n²) or O(n log n) approach first.
-  - Practice the follow-up: can you do it in one pass? in-place? with O(1) space?
-  - Trace a concrete example and explain trade-offs (time vs. space).
-- **Time:** 20 min
+## Day 3 — Review & Rest
+**Budget today:** 0 min
+*Review solutions from Day 1 & 2. Understand any missed edge cases or alternative approaches.*
 
 ---
 
-## Day 7 — Mock Interview & Final Drill
-**Budget today:** 20 min
+## Day 4 — Review & Rest
+**Budget today:** 0 min
+*Review core data structures (arrays, lists, maps, trees, graphs) and algorithms (sorting, searching).*
 
-### DSA: Timed Mixed Problem
-- **Pattern / goal:** Under interview conditions, solve a random LeetCode medium from {greedy, DP, string, hash map, stack, array}.
-- **Approach:**
-  - Pick one problem you haven't drilled yet from the patterns above.
-  - Set a timer for 20 minutes.
-  - Code end-to-end: restate the problem, walk through an example, implement, test with edge cases.
-  - Simulate speaking aloud (as in the real interview); explain your reasoning as you code.
-  - No looking up solutions mid-interview — commit to an approach and refine it.
-- **Time:** 20 min
+---
+
+## Day 5 — Review & Rest
+**Budget today:** 0 min
+*Light review of Big O notation and common algorithm complexities.*
+
+---
+
+## Day 6 — Final Review
+**Budget today:** 0 min
+*Mentally walk through the solutions to Day 1 & 2 problems without coding. Focus on clear communication of your thought process.*
+
+---
+
+## Day 7 — Pre-interview Prep
+**Budget today:** 0 min
+*Relax. Ensure your environment is ready for the interview tomorrow.*
 
 ---
 
 ## Weak areas to revisit
-None identified yet — first session will surface these. If during Day 1–7 you find yourself struggling with a particular pattern (e.g., DP transitions, greedy correctness, or string parsing), insert a second drill of that type on the next available day. Fivetran emphasizes clear communication of *why* an algorithm works, so during each drill, pause and explain your approach before coding.
+None identified yet — first session will surface these.
 
 ---
 
 ## Research & Sources
 
-## Interview Questions: Fivetran — Coding Ability and Problem Solving — Senior Software Engineer
-
-> Data compiled from 8 sources. Most recent: April 2025. Search date: May 7, 2026.
-
-Based on candidate experiences, the "Coding Ability and Problem Solving" round for a Senior Software Engineer at Fivetran typically involves one or two technical interviews. These sessions often use platforms like HackerRank for an initial assessment, followed by live coding rounds. The questions are consistently reported to be at a LeetCode medium difficulty level, with a focus on data structures and algorithms (DSA).
+Here is everything I found across Fivetran's official blog, LeetCode Discuss, Glassdoor, Blind, and aggregator sites. Note that Fivetran uses the round name **"Coding Ability and Problem Solving"** (C1 in their own nomenclature) specifically for the problem-solving DSA challenge.
 
 ---
 
-### Technical & Coding Questions
+## Interview Questions: Fivetran — "Coding Ability and Problem Solving" (DSA) — Senior Software Engineer
 
-Candidates have reported a mix of specific LeetCode-style problems and more general problem-solving tasks.
+> Data compiled from 7+ sources across Glassdoor, LeetCode Discuss, Blind, Fivetran's own engineering blog, and aggregator sites. Most recent source: March 2025. Search date: May 7, 2026.
 
-1.  **Greedy Algorithm / Gas Station Variant**
-    *   **Question:** A problem described as "Aladdin and the Magic Carpet," which was conceptually similar to LeetCode's "Gas Station" problem (LC 134). The task involved a greedy approach to determine if a circular route could be completed.
-    *   *Source:* [LeetCode Discuss](https://leetcode.com/discuss/interview-experience/5256507/Fivetran-SDE-2-interview-review) — approx. June 2024
+---
 
-2.  **Dynamic Programming**
-    *   **Question:** "Longest Increasing Subsequence" (LIS). Candidates were expected to explain the DP approach with O(n²) complexity and then code the solution.
-    *   *Source:* [LeetCode Discuss](https://leetcode.com/discuss/interview-experience/5256507/Fivetran-SDE-2-interview-review) — approx. June 2024
+### Round Format & Structure
 
-3.  **Frequency and Data Structures**
-    *   **Question:** "A bag contains n = 6 items with IDs, and m = 2 items can be removed. What is the minimum number of different IDs the final bag can contain?"
-    *   *Source:* [Taro](https://www.jointaro.com/interview-experiences/fivetran/senior-sdet/bengaluru-karnataka-india-gYax84qkDN/) — approx. September 2024
 
-4.  **String Manipulation**
-    *   **Question:** "Given the string `a3c9b2c2`, compress it by summing the frequencies of the same characters." The expected output was `a3b2c11`.
-    *   *Source:* [Taro](https://www.jointaro.com/interview-experiences/fivetran/senior-sdet/bengaluru-karnataka-india-gYax84qkDN/) — approx. September 2024
 
-5.  **Array Manipulation**
-    *   **Question:** A typical medium HackerRank/LeetCode problem involving array manipulation with a follow-up question. The specific problem was not detailed.
-    *   *Source:* [Taro](https://www.jointaro.com/interview-experiences/fivetran/senior-software-engineer/kaluga-kaluga-oblast-DnjJbLp51O/) — approx. March 2020
+The coding challenge runs 60–90 minutes (video or in-person). The **C1 "Problem Solving"** challenge is described by Fivetran as "a fairly standard coding question, designed to determine a base level of problem-solving ability in the software language of your choice," conducted via HackerRank.
 
-6.  **Stack-based Problems**
-    *   **Question:** A candidate mentioned a question that was not a direct LeetCode problem but was related to "LC mediums and used stacks."
-    *   *Source:* [Taro](https://www.jointaro.com/interview-experiences/fivetran/senior-software-engineer/canada-b5kQZJ9pXG/) — approx. April 2025
+
+
+
+
+There is also a second coding challenge **(C2 "Coding Structure and Data Processing")** — a more focused problem evaluating your ability to interact with a codebase, think structurally, and perform basic data manipulation — given as part of the on-site.
+
+
+
+
+
+C2 is given in Java, though there are very few advanced language features, and the interviewer is instructed to help with minor language difficulties (i.e., a Python engineer should be able to pass).
+
+
+
+
+
+One candidate noted that the technical interview process involved several parts: discussing, estimation (Big O notation), improving or simplifying a solution, coding, checking, and then a detailed discussion of all pros and cons of your decision.
+
+
+
+---
+
+### Confirmed Questions Asked (Firsthand Accounts)
+
+#### Arrays / Heaps / Greedy
+
+1. **Employee score management problem (Heap-based)**
+   - 
+
+One SDE-2 candidate reported: the OA consisted of a single HackerRank question in Java only. "The problem was based on managing employee scores." The candidate approached it using a heap-based solution, with only 2–3 test cases failing.
+
+
+   - Source: [LeetCode Discuss](https://leetcode.com/discuss/interview-experience/6836681/) — approx. 2024/2025
+
+2. **Heaps question (general)**
+   - 
+
+A candidate reported being asked "a Heaps-related question" and was expected to write executable code with all test cases passing.
+
+
+   - Source: [Glassdoor](https://www.glassdoor.com/Interview/Fivetran-Software-Developer-Interview-Questions-EI_IE1415980.0,8_KO9,27.htm) — approx. 2022/2023
+
+3. **Array / medium-difficulty problem**
+   - 
+
+One candidate reported receiving a question "on arrays."
+
+
+   - Source: [Glassdoor](https://www.glassdoor.com/Interview/Fivetran-Software-Engineer-Interview-Questions-EI_IE1415980.0,8_KO9,26.htm) — approx. 2022
+
+4. **Greedy approach problem**
+   - 
+
+One candidate reported getting "a question of greedy approach" during the live coding (second technical) interview.
+
+
+   - Source: [Glassdoor](https://www.glassdoor.com/Interview/Fivetran-Software-Engineer-Interview-Questions-EI_IE1415980.0,8_KO9,26.htm) — approx. 2022
+
+5. **Minimum budget / scheduling problem (OA — Binary Search / Greedy)**
+   - 
+
+A 2024 HackerRank OA question: Given two arrays with "expected cost" and "worst case cost" for each product, return the minimum starting budget that allows producing all products. Tagged as Binary Search.
+
+
+   - Source: [LeetCode Discuss](https://leetcode.com/discuss/interview-question/5179750/Fivetran-OA-SDE-2/) — May 2024
+
+#### Dynamic Programming
+
+6. **Longest Increasing Subsequence (LIS)**
+   - 
+
+In the first part of a technical coding round, a candidate was asked to solve the classic Longest Increasing Subsequence (LIS) problem, in a session "divided into two parts, both focused on data structures and algorithms."
+
+
+   - Source: [LeetCode Discuss](https://leetcode.com/discuss/interview-experience/6836681/) — approx. 2024/2025
+
+#### Greedy / Gas Station Variant
+
+7. **"Aladdin and the Magic Carpet" — similar to LeetCode 134: Gas Station**
+   - 
+
+In the second part of the same session, the candidate was given a custom problem called "Aladdin and the Magic Carpet," conceptually similar to LeetCode 134 (Gas Station). The interviewer clarified the problem, and the candidate then "implemented a greedy approach."
+
+
+   - Source: [LeetCode Discuss](https://leetcode.com/discuss/interview-experience/6836681/) — approx. 2024/2025
+
+#### Graph Traversal
+
+8. **Graph traversal (LC-medium) — live on HackerRank**
+   - 
+
+One SDE-2 candidate was given "1 LC medium question based on graph traversal" via HackerRank, where all test cases needed to pass. Basic graph-theory follow-up questions were also asked.
+
+
+   - Source: [LeetCode Discuss](https://leetcode.com/discuss/interview-experience/1793270/fivetran-sde-2-bangalore/) — 2022
+
+#### Strings / Encoding
+
+9. **Decode compressed string to frequency array (advanced run-length encoding)**
+   - 
+
+A phone interview question hosted on HackerRank, described as "an advanced version of run-length encoding." The input string contains digits 0–9 and parentheses. Digits outside parentheses map to lowercase English alphabets; digits inside parentheses map to the frequencies of the corresponding alphabets.
+
+
+   - Source: [LeetCode Discuss](https://leetcode.com/discuss/post/6046597/Fivetran-or-Data-Engineer-phone-interview-or-Decode-compressed-string-to-frequency-array/) — Nov 2024
+
+---
+
+### Topics Mentioned From Aggregators (Less Reliable — Prep-Site Listed)
+
+
+
+One aggregator (Interview Solver) lists Fivetran as commonly asking ~44 coding problems, including **Longest Palindromic Substring**, **Populating Next Right Pointers in Each Node**, and **Reveal Cards In Increasing Order**, with a difficulty split of 10 Easy / 27 Medium / 7 Hard. The site notes that "Fivetran interviews typically emphasize Array and String."
+
+
+
+*(These are aggregated from LeetCode tagging data — treat as directional signal, not confirmed questions.)*
 
 ---
 
 ### Themes & Patterns
 
-*   **LeetCode Medium:** The difficulty is consistently benchmarked against LeetCode medium problems. Candidates who are comfortable with this level should be well-prepared.
-*   **Emphasis on Core DSA:** Common topics include arrays, strings, dynamic programming, greedy algorithms, and data structures like hashmaps and stacks.
-*   **HackerRank Platform:** Fivetran frequently uses HackerRank for both initial online assessments and live coding interviews. Familiarity with the platform is beneficial.
-*   **Language Constraints:** Some candidates reported that Java was the only language permitted for the assessment, so it's wise to confirm with the recruiter beforehand.
-*   **Clear Communication:** Interviewers expect candidates to explain their thought process, discuss the logic behind their approach (e.g., why DP is suitable for LIS), and walk through examples before and after coding.
+- 
+
+The first round is typically a HackerRank-based test with **one coding question at medium difficulty** — "like a LeetCode medium-level question" — with a 60-minute time limit.
+
+
+- 
+
+One candidate described the process as "R1 → Tough HackerRank question; R2 → F2F tough LeetCode-kind of question where you have to run all test cases in front of the interviewer."
+
+
+- **All test cases must pass.** This is a recurring theme — HackerRank auto-grades, and interviewers also check during live sessions. Partial credit is not guaranteed.
+- 
+
+Candidates are encouraged to ask questions about the problem and the merits of different approaches. "This interview works best for both participants if it's a conversation."
+
+
+- **Topics seen across reports:** Arrays, Heaps, Greedy, Graph traversal, Dynamic Programming (LIS), Strings/Encoding. Maps are also reported (primarily for SDET). 
+
+One SDET candidate reported "an easy-level Map-based question" in the HackerRank coding test, and "primarily LC Medium questions, mainly consisting of Maps" in the DSA round.
+
+
+
+---
 
 ### Preparation Tips (from candidates)
 
-*   **Practice LeetCode:** Focus on medium-level questions, particularly those related to arrays, strings, and dynamic programming, as these are frequently mentioned.
-*   **Understand the "Why":** Be prepared to articulate your reasoning. For instance, when solving the LIS problem, one candidate started by explaining the decision tree and overlapping subproblems to justify the use of dynamic programming.
-*   **Clarify the Problem:** One candidate noted they initially had trouble understanding a problem but succeeded after the interviewer provided clarification. Don't hesitate to ask questions to ensure you fully grasp the requirements.
+- 
+
+Be prepared to explain your thought process and approach during live coding sessions — "interviewers appreciate candidates who can articulate their reasoning and problem-solving strategies."
+
+
+- 
+
+Expect estimation of time complexity (Big O), discussion of trade-offs, and code improvement as part of the conversation, not just writing the solution.
+
+
+- 
+
+Brush up on Java and DBMS. "For senior roles, technologies such as Docker and Kubernetes are important" (may come up outside the DSA round).
+
+
+- 
+
+One Blind user noted: "Was asked an easy HackerRank question. Solved it with all tests passing in the first 15 mins. Then was asked follow-up questions and asked to explain the approach verbally."
+
+ — Don't assume you're done once the code runs; verbal walkthroughs follow.
 
 ---
 
 ### Sources
 
 | # | Title / Thread | Platform | URL | Approx. Date |
-|---|---|---|---|---|
-| 1 | Fivetran SDE-2 interview review | LeetCode Discuss | [https://leetcode.com/discuss/interview-experience/5256507/Fivetran-SDE-2-interview-review](https://leetcode.com/discuss/interview-experience/5256507/Fivetran-SDE-2-interview-review) | June 2024 |
-| 2 | Fivetran Senior SDET Interview Experience | Taro | [https://www.jointaro.com/interview-experiences/fivetran/senior-sdet/bengaluru-karnataka-india-gYax84qkDN/](https://www.jointaro.com/interview-experiences/fivetran/senior-sdet/bengaluru-karnataka-india-gYax84qkDN/) | September 2024 |
-| 3 | Fivetran Senior Software Engineer Interview Experience - Canada | Taro | [https://www.jointaro.com/interview-experiences/fivetran/senior-software-engineer/canada-b5kQZJ9pXG/](https://www.jointaro.com/interview-experiences/fivetran/senior-software-engineer/canada-b5kQZJ9pXG/) | April 2025 |
-| 4 | Fivetran Senior Software Engineer Interview Experience | Taro | [https://www.jointaro.com/interview-experiences/fivetran/senior-software-engineer/kaluga-kaluga-oblast-DnjJbLp51O/](https://www.jointaro.com/interview-experiences/fivetran/senior-software-engineer/kaluga-kaluga-oblast-DnjJbLp51O/) | March 2020 |
-| 5 | Fivetran Senior Software Engineer Interview Experience - India | Taro | [https://www.jointaro.com/interview-experiences/fivetran/senior-software-engineer/india-yLqQPJAdgE/](https://www.jointaro.com/interview-experiences/fivetran/senior-software-engineer/india-yLqQPJAdgE/) | December 2022 |
-| 6 | Fivetran Software Engineer Interview Questions + Guide in 2025 | Prepfully | [https://www.prepfully.com/interview-guides/fivetran-software-engineer-interview](https://www.prepfully.com/interview-guides/fivetran-software-engineer-interview) | March 2026 |
-| 7 | Fivetran Interview Questions | Interview Solver | [https://interviews-solver.com/interviews/fivetran](https://interviews-solver.com/interviews/fivetran) | 2026 |
-| 8 | Fivetran Interview Experience | Route2Hire | [https://route2hire.com/Fivetran-interview-experience/](https://route2hire.com/Fivetran-interview-experience/) | N/A |
+|---|---------------|----------|-----|--------------|
+| 1 | Fivetran SDE-2 interview review | LeetCode Discuss | https://leetcode.com/discuss/interview-experience/6836681/ | 2024/2025 |
+| 2 | Fivetran OA — SDE-2 | LeetCode Discuss | https://leetcode.com/discuss/interview-question/5179750/Fivetran-OA-SDE-2/ | May 2024 |
+| 3 | Fivetran \| SDE-2 \| Bangalore | LeetCode Discuss | https://leetcode.com/discuss/interview-experience/1793270/fivetran-sde-2-bangalore/ | Feb 2022 |
+| 4 | Fivetran Data Engineer phone interview — Decode compressed string | LeetCode Discuss | https://leetcode.com/discuss/post/6046597/ | Nov 2024 |
+| 5 | The Software Engineering Interview at Fivetran (official blog) | Fivetran Blog | https://www.fivetran.com/blog/software-engineering-interview | Mar 2025 |
+| 6 | Fivetran Software Engineer Interview Questions | Glassdoor | https://www.glassdoor.com/Interview/Fivetran-Software-Engineer-Interview-Questions-EI_IE1415980.0,8_KO9,26.htm | Various (2022–2025) |
+| 7 | Fivetran Software Developer Interview Questions | Glassdoor | https://www.glassdoor.com/Interview/Fivetran-Software-Developer-Interview-Questions-EI_IE1415980.0,8_KO9,27.htm | Various |
+| 8 | Fivetran interview (Blind) | Blind | https://www.teamblind.com/post/Fivetran-interview-ci3YWmOB | Mar 2022 |
+| 9 | Fivetran Interview Questions (aggregator) | Interview Solver | https://interviewsolver.com/interview-questions/fivetran | 2024 |
+| 10 | Fivetran Senior SDET Interview Experience | Joint Taro | https://www.jointaro.com/interviews/companies/fivetran/experiences/senior-sdet-bengaluru-september-1-2024-no-offer-positive-9820d168/ | Sep 2024 |
